@@ -11,3 +11,9 @@ install:
 
 build:
     project: msvs\RedisServer.sln
+after_build:
+- cmd: 7z a redis-server.zip c:\projects\redis\msvs\x64\Release\redis-server.exe
+
+artifacts:
+- path: '**\redis*.zip'
+  name: RedisServer
